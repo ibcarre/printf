@@ -14,7 +14,8 @@ NAME = libftprintf.a
 
 INC = ft_printf.h
 
-SRC = ./ft_printf.c
+SRC = ./ft_printf.c\
+	./ft_helpers.c\
 
 OBJ = $(SRC:.c=.o)
 
@@ -24,15 +25,11 @@ $(NAME): $(OBJ)
 	ar crs $(NAME) $(OBJ)
 
 all : $(NAME)
-	cd libft && make $@
 	
 clean:
 	rm -f $(OBJ)
-	cd libft && make $@
 
 fclean: clean
 	rm -f $(NAME)
-	cd libft && make $@
 
 re : fclean all
-	cd libft && make $@
