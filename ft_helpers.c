@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int	ft_putnbr_fd(int nbr, int fd, int u)
 {
@@ -62,9 +61,9 @@ int	ft_putstr_fd(char *str, int fd)
 	return (i);
 }
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
@@ -72,47 +71,33 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	putnbr_base(int nb, char *base)
+int	putnbr_base(unsigned int nb, char *base)
 {
 	char	c;
 	int		count;
-	int		baselen;
-	unsigned int	n;
+	size_t	baselen;
 
-	n = (unsigned int)nb;
 	count = 1;
-	if (n < 0)
-	{
-		write(1, "-", 1);
-		n = -n;
-		count++;
-	}
 	baselen = ft_strlen(base);
-	if (n < baselen)
+	if (nb < baselen)
 	{
-		c = base[n];
+		c = base[nb];
 		write(1, &c, 1);
 		return (count);
 	}
-	count = count + putnbr_base(n / baselen, base);
-	c = base[n % baselen];
+	count = count + putnbr_base(nb / baselen, base);
+	c = base[nb % baselen];
 	write(1, &c, 1);
 	return (count);
-}
-
-int	putptr(void *c)
-{
-	(void)c;
-	return (1);
 }
 
 /*
 int	main()
 {
-	putnbr_base(-1, "0123456789abcdef");
-	printf("\n");
-	printf("%x\n", -1);
-	int count = printf("%x\n", -1);
-	printf("\n%i\n", count);
+	int b = 5;
+	int *c = &b;
+	int j = putptr(0, "0123456789abcdef");
+	int count = printf("%p", 0);
+	printf("\nTEST %i\n", j);
 
 }*/

@@ -16,6 +16,7 @@ INC = ft_printf.h
 
 SRC = ./ft_printf.c\
 	./ft_helpers.c\
+	./ft_helperstwo.c\
 
 OBJ = $(SRC:.c=.o)
 
