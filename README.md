@@ -18,17 +18,6 @@ Reproduce the behavior of the format conversions required by the project, with e
 - Variadic functions (`stdarg.h`)
 - String manipulation and formatting
 
-## Build
-
-Example, if a Makefile is provided:
-
-```bash
-make
-```
-
-## Tests
-
-Add the test commands available in the repository and specify which format conversions are covered.
 
 ## Author
 
